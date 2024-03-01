@@ -1,0 +1,195 @@
+.cabecalho__menu-hamburguer{
+    width: 48px;
+    height: 48px ;
+    background-image: url("../img/Menu.svg");
+    background-repeat:no-repeat ;
+    background-position: center;
+    display: inline-block;
+}
+
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburguer{
+   background-image: url("../img/Menu Aberto.svg");
+}
+
+.container__botao:checked ~ .container__rotulo{
+    background: var(--azul-degrade);
+}
+
+
+
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*faz colocar os atributos na posição*/
+}
+
+.container{
+    display: flex;
+    align-items: center;
+}
+
+.container__imagem{
+ padding: 1em;
+}
+
+.lista-menu{
+    display: none;
+    position: absolute; /*permiti que se movimentasse junto com o PAI que é o cabeçalho*/
+    top: 100%; /* o topo deste elemento deve estar 100% depois do cabeçalho*/
+    width: 60vw; /* "vw" é largura da tela*/
+}
+
+.container__botao:checked~.lista-menu{ /* "~." se o container__botao tiver checked ele vai procurar outro que tenha a classe "lista-menu" e vai colocar o que estiver dentro das {} PS: ele faz para que o botão do menu hamburgue aparece e desaparece o conteudo que tem que é são as categorias*/
+    display: block;
+
+}
+
+.lista-menu__titulo, 
+.lista-menu__item{
+    padding: 1em;
+    background-color: var(--branco);
+
+}
+
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link{
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text ;
+    text-transform: uppercase; /*deixa tudo maisculo*/
+}
+
+.container__botao{
+    display: none;
+}
+
+.container__titulo{
+    display: none;
+}
+
+.opcoes{
+    display: none;
+}
+
+.container__texto{
+    display: none;
+}
+
+@media screen and (min-width: 1024px){
+    
+    .container__imagem-transparent{
+        display: none;
+    }
+
+    .cabecalho__menu-hamburguer{
+        display: none;
+    }
+
+    .container__titulo, .container__titulo--negrito{
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+
+    .opcoes{
+        display: flex;  
+    }
+
+    .opcoes__item{
+        padding: 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link{
+        text-decoration: none;
+        color: black;
+    }
+
+
+
+    .opcoes__botao:checked ~ .lista-menu{
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__botao{
+        display: none;
+    }
+
+    .opcoes__botao:checked ~.opcoes__rotulo > .opcoes__item{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__item{
+        padding: 2em 1em;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover >.lista-menu__link{
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+
+}
+
+.container__texto{
+    display: none;
+}
+
+@media screen and (min-width: 1728px){
+
+.cabecalho{
+    padding: 0 2em;
+}
+
+.container__link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--preto);
+    padding-right: 1em;
+}
+
+.container__texto{
+    display: block;
+}
+
+
+.opcoes{
+    margin-right: auto; /* margin-right ira preencher todo espaço vazio do lado direito levando todo texto para o lado do logotipo (esquerdo).*/
+    padding-left: 4em;
+}
+}
+
+/*------------------------------------------------HOVER----------------------------------------------*/
+
+.lista-menu__item:hover {
+    background: var(--azul-degrade);
+}
+
+.lista-menu__item:hover >.lista-menu__link{
+    -webkit-text-fill-color: var(--branco);
+    text-decoration: none;
+}
+
+
+
